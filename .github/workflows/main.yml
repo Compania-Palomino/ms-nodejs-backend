@@ -40,6 +40,11 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+      - name: Debug variables
+        run: |
+            echo "Valor de APELLIDO: ${{ vars.APELLIDO }}"
+            echo "Nombre esperado: acr${{ vars.APELLIDO }}"
+
       - name: Docker Login to ACR
         run: |
           az acr login --name acr${{ vars.APELLIDO }}
